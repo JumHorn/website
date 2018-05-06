@@ -2,9 +2,10 @@
 
 ## critical section
 
-<pre><code class="C++">#include &lt;stdio.h&gt;
-#include &lt;process.h&gt;
-#include &lt;windows.h&gt;
+```C++
+#include <stdio.h>
+#include <process.h>
+#include <windows.h>
 
 // Usage
 // EnterCriticalSection(CRITICAL_SECTION)
@@ -25,7 +26,7 @@ int main()
     HANDLE handle[THREAD_NUM];
     global = 0;
     int i = 0;
-    while (i &lt; THREAD_NUM) 
+    while (i < THREAD_NUM) 
     {
         handle[i] = (HANDLE)_beginthreadex(NULL, 0, ThreadFunction, &i, 0, NULL);
         ++i;  
@@ -45,21 +46,22 @@ unsigned int __stdcall ThreadFunction(void *handle)
     LeaveCriticalSection(&g_csThreadCode);
     return 0;
 }
-</code></pre>
+```
 
 这个例子当线程数设置为150时，我的主机就无法正常全部打印了
 
 ## mutex
 
-<pre><code class="C++">// 互斥量Mutex：
+```C++
+// 互斥量Mutex：
 // Usage
 // WaitForSingleObject(hMutex,…);  
 // ...//do something  
 // ReleaseMutex(hMutex);  
 
-#include &lt;stdio.h&gt;
-#include &lt;process.h&gt;
-#include &lt;windows.h&gt;
+#include <stdio.h>
+#include <process.h>
+#include <windows.h>
 
 long global;
 unsigned int __stdcall ThreadFunction(void *handle);
@@ -75,7 +77,7 @@ int main()
     HANDLE handle[THREAD_NUM];
     global = 0;
     int i = 0;
-    while (i &lt; THREAD_NUM) 
+    while (i < THREAD_NUM) 
     {
         handle[i] = (HANDLE)_beginthreadex(NULL, 0, ThreadFunction, &i, 0, NULL);
         i++;
@@ -95,20 +97,21 @@ unsigned int __stdcall ThreadFunction(void *handle)
     ReleaseMutex(hmutex);   // 触发互斥量
     return 0;
 }
-</code></pre>
+```
 
 互斥量和关键段的区别互斥量可以设置等待时间
 
 ## event
 
-<pre><code class="C++">// Usage
+```C++
+// Usage
 // SetEvent(hEvent);
 // WaitForSingleObject(hEvent,…);
 // 等待其他进程的setevent，然后执行操作
 
-#include &lt;stdio.h&gt;  
-#include &lt;process.h&gt;  
-#include &lt;windows.h&gt;  
+#include <stdio.h>  
+#include <process.h>  
+#include <windows.h>  
 long global;  
 unsigned int __stdcall ThreadFunction(void *handle);  
 const int THREAD_NUM = 10;  
@@ -122,7 +125,7 @@ int main()
     global = 0;  
     int i = 0;  
     SetEvent(hevent);  //如果这一行注释，则事件没有触发，所有线程等待
-    while (i &lt; THREAD_NUM)   
+    while (i < THREAD_NUM)   
     {  
         handle[i] = (HANDLE)_beginthreadex(NULL, 0, ThreadFunction, &i, 0, NULL);  
         i++;  
@@ -141,19 +144,20 @@ unsigned int __stdcall ThreadFunction(void *handle)
     SetEvent(hevent); //触发事件 
     return 0;  
 }  
-</code></pre>
+```
 
 事件更适合一个线程像另一个线程发送通知消息
 
 ## semaphore
 
-<pre><code class="C++">// WaitForSingleObject(hsemaphore,INFINITE);
+```C++
+// WaitForSingleObject(hsemaphore,INFINITE);
 // ...//do something
 // ReleaseSemaphore(hsemaphore, 1, NULL);
 
-#include &lt;stdio.h&gt;
-#include &lt;process.h&gt;
-#include &lt;windows.h&gt;
+#include <stdio.h>
+#include <process.h>
+#include <windows.h>
 
 long global;
 unsigned int __stdcall ThreadFunction(void *handle);
@@ -169,7 +173,7 @@ int main()
     HANDLE handle[THREAD_NUM];
     global = 0;
     int i = 0;
-    while (i &lt; THREAD_NUM) 
+    while (i < THREAD_NUM) 
     {
         handle[i] = (HANDLE)_beginthreadex(NULL, 0, ThreadFunction, &i, 0, NULL);
         ++i;
@@ -190,7 +194,7 @@ unsigned int __stdcall ThreadFunction(void *handle)
     ReleaseSemaphore(hsemaphore, 1, NULL);  // 信号量++
     return 0;
 }
-</code></pre>
+```
 
 semaphore针对资源而言，对于一个区间允许有多个线程访问
 
@@ -206,25 +210,28 @@ semaphore针对资源而言，对于一个区间允许有多个线程访问
 
 *   Use two shared data items 
 
-<pre><code class="C++">int turn; //指示该谁进入临界区  
+```C++
+int turn; //指示该谁进入临界区  
 bool flag[]; //指示进程是否准备好进入临界区
-</code></pre>
+```
 
 *   code for enter critical section 
 
-<pre><code class="C++">flag[i] = TRUE;
+```C++
+flag[i] = TRUE;
 turn = j;
 while(flag[j]&&turn==j);
-</code></pre>
+```
 
 *   code for exit critical section
 
-<pre><code class="C++">flag[j]=FALSE;
-</code></pre>
+```C++
+flag[j]=FALSE;
+```
 
 # 其他基于硬件的原子操作
 
-<img src="https://www.jum1023.com/wp-content/uploads/2018/01/thread-300x172.jpg" alt="" width="792" height="455" class="alignnone size-medium wp-image-78" />
+<img src="./images/thread-300x172.jpg" alt="" width="792" height="455" class="alignnone size-medium wp-image-78" />
 
 # 其他关于进程间同步的经典问题
 

@@ -10,7 +10,7 @@ Major courses: data structure and algorithm, computer network, pattern recogniti
 <div><strong><em>Contact me:</em></strong>
 mail: zheyangkaishi@gmail.com
 wechat:
-<img class="alignnone size-medium wp-image-25" src="http://www.jum1023.com/wp-content/uploads/2018/01/webwxgetmsgimg-226x300.jpg" alt="" width="226" height="300" />
+<img class="alignnone size-medium wp-image-25" src="./images/webwxgetmsgimg-226x300.jpg" alt="" width="226" height="300" />
 <div></div>
 <strong><em>Code Area:</em></strong>
 <a href="https://github.com/JumHorn">Github</a>

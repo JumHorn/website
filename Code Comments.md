@@ -1,6 +1,6 @@
 之前就听过非常好玩的佛祖注释
 
-<pre><code class="C++">
+```C++
 /* ......................我佛慈悲...................... 
  *                       _oo0oo_ 
  *                      o8888888o 
@@ -25,11 +25,11 @@
  *  
  */ 
 
-</code></pre>
+```
 
 [今天看到一个可以与之媲美的注释][1]
 
-<pre><code class="C++">
+```C++
 /*
  * WARNING: The code that follows may make you cry:
  *           A Safety Pig has been provided below for your benefit
@@ -49,11 +49,11 @@
  *              /,_/      '`-'
  */
 
-</code></pre>
+```
 
 当然还有很多其他千奇百怪的注释，都十分好玩，很佩服他们的想象力
 
-<pre><code class="C++">
+```C++
 //          _^___
 //  L    __/   [] \
 // LOL===__        \
@@ -61,7 +61,7 @@
 //          I   I
 //
 
-</code></pre>
+```
 
 后来我觉得自己画这个东西不太现实，就觉得是代码自动生成的。  
 并且找到了一个代码生成的例子  
@@ -69,7 +69,8 @@
 对一个像素点的灰度值（或者多个像素点的灰度值的平均统计值）进行等级划分  
 '@%#*+=-:. '假设现在划分为10级，则@代表黑，空格代表白
 
-<pre><code class="python"># Python code to convert an image to ASCII image.
+```python
+# Python code to convert an image to ASCII image.
 import sys, random, argparse
 import numpy as np
 import math
@@ -223,7 +224,7 @@ def main():
 # call main
 if __name__ == '__main__':
     main()
-</code></pre>
+```
 
 [这个问题在StackOverflow上也有说明][2] 总之计算出来的真的没有这些画的好看
 

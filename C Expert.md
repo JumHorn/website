@@ -4,7 +4,8 @@
 
 *   原型决定C语言不支持函数重载
 
-<pre><code class="C++">//previous definition is here
+```C++
+//previous definition is here
 void overload(int a)
 {
     printf("%d\n",a);
@@ -14,11 +15,12 @@ void overload(double a)
 {
     printf("%lf\n",a);
 }
-</code></pre>
+```
 
 *   参数传递类似于赋值
 
-<pre><code class="C++">void assign(char a)
+```C++
+void assign(char a)
 {
     printf("%d\n",a);
 }
@@ -36,11 +38,12 @@ int main()
     //argument is incompatible with prototype
     assignpoint(p);
 }  
-</code></pre>
+```
 
 *   尽量不要使用无符号类型
 
-<pre><code class="C++">int array[5] = {1,2,3,4,5};
+```C++
+int array[5] = {1,2,3,4,5};
 //当数组类型发生变化时，这种方式比下面的方法更通用
 #define TOTAL_ELEMENTS sizeof(array)/sizeof(array[0])
 // #define TOTAL_ELEMENTS sizeof(array)/sizeof(int)
@@ -50,19 +53,20 @@ int main()
     int d = -1;
     // TOTAL_ELEMENTS类型是无符号整数，d被转化为无符号数
     // 需要强制类型转化
-    // if(d&lt;(int)TOTAL_ELEMENTS)
-    if(d&lt;TOTAL_ELEMENTS)
+    // if(d<(int)TOTAL_ELEMENTS)
+    if(d<TOTAL_ELEMENTS)
     {
         printf("hello");
     }
 }  
-</code></pre>
+```
 
 # 第二章 这不是Bug,而是语言特性
 
 *   switch
 
-<pre><code class="C++">#include&lt;stdio.h&gt;
+```C++
+#include<stdio.h>
 int main()  
 {
     const int two = 2; //现在编译器不会出现错误
@@ -80,11 +84,12 @@ int main()
         case 3:printf("case 3\n");
     }
 }
-</code></pre>
+```
 
 *   字符串自动连接
 
-<pre><code class="C++">#include&lt;stdio.h&gt;
+```C++
+#include<stdio.h>
 int main()  
 {
     //加斜杠空格，第二行前面的空格也算在内，没有反斜杠会报错
@@ -97,11 +102,12 @@ int main()
     char *strs[] = {"red""green","yellow"};
     printf("%s\n",strs[0]);
 }
-</code></pre>
+```
 
 *   符号重载
 
-<pre><code class="C++">#include&lt;stdio.h&gt;
+```C++
+#include<stdio.h>
 int main()
 {
     int *p;
@@ -110,7 +116,7 @@ int main()
     // invalid operands to binary expression ('unsigned long' and 'int *')
     apple = sizeof(int)*p;
 }
-</code></pre>
+```
 
 *   运算符优先级
 
@@ -126,7 +132,8 @@ int main()
 
 *   最大一口策略
 
-<pre><code class="C++">int main()
+```C++
+int main()
 {
     int x=2,y=3,temp;
     temp = y+++x;
@@ -135,7 +142,7 @@ int main()
     // temp = y++ ++ +x; //不能编译通过
     printf("%d\n",temp);
 }
-</code></pre>
+```
 
 *   lint程序
 
@@ -151,7 +158,8 @@ int main()
 
 *   位段，无名字段和填充字段
 
-<pre><code class="C++">#include&lt;stdio.h&gt;
+```C++
+#include<stdio.h>
 int main()
 {
     struct dog
@@ -175,11 +183,12 @@ int main()
     };
     printf("%lu\n",sizeof(struct pid_tag));//16
 }
-</code></pre>
+```
 
 *   typedef 和 #define
 
-<pre><code class="C++">#include&lt;stdio.h&gt;
+```C++
+#include<stdio.h>
 int main()
 {
     #define peach int  //没有分号
@@ -194,7 +203,7 @@ int main()
     typedef char * char_ptr;
     char_ptr Bentley,Rolls_Royce; //两个char*
 }
-</code></pre>
+```
 
 # 第四章 令人震惊的事实：数组和指针并不相同
 
@@ -235,8 +244,9 @@ link /dll objfile 生成dll文件
 
 windows下调用动态链接库
 
-<pre><code class="C++">#include&lt;iostream&gt;
-#include&lt;windows.h&gt;
+```C++
+#include<iostream>
+#include<windows.h>
 using namespace std;
 
 // windows 下的调用方式
@@ -246,10 +256,10 @@ int main()
     HINSTANCE hDll=LoadLibrary("E:\\CClearning\\DynamicLinkLibrary\\dll.dll");
     if(!hDll)
     {
-        cout&lt;&lt;"LoadLibrary Error: "&lt;&lt;GetLastError()&lt;&lt;endl;
+        cout<<"LoadLibrary Error: "<<GetLastError()<<endl;
         return 0;
     }
-    cout&lt;&lt;"dll.dll的句柄地址："&lt;&lt; hDll &lt;&lt; endl;
+    cout<<"dll.dll的句柄地址："<< hDll << endl;
 
     //pfunc本身表示指针，不能再用pfunc*
     //pfunc * pf=(pfunc *)GetProcAddress(hDll,"?greet@@YAXXZ");
@@ -257,17 +267,17 @@ int main()
     pfunc pf=(pfunc)GetProcAddress(hDll,"?greet@@YAXXZ");
     if(!pf)
     {
-        cout&lt;&lt;"GetProcAddress Error: "&lt;&lt;GetLastError()&lt;&lt;endl;
+        cout<<"GetProcAddress Error: "<<GetLastError()<<endl;
         return 0;
     }
-    cout&lt;&lt;"dll.dll内的greet()函数的地址："&lt;&lt; pf &lt;&lt;endl;
+    cout<<"dll.dll内的greet()函数的地址："<< pf <<endl;
 
     pf();
     //(*pf)();
     //使用完毕后，释放dll文件
     FreeLibrary(hDll);
 }
-</code></pre>
+```
 
 **使用gcc编译器**  
 g++ -c cppfile 生成.o链接文件  
@@ -289,8 +299,9 @@ g++ gccdynamic.cpp libdll.so
 
 *   setjmp可以实现异常处理
 
-<pre><code class="C++">#include&lt;stdio.h&gt;
-#include&lt;setjmp.h&gt;
+```C++
+#include<stdio.h>
+#include<setjmp.h>
 
 jmp_buf buf;
 
@@ -315,7 +326,7 @@ main()
         banana();
     }
 }
-</code></pre>
+```
 
 # 第七章 对内存的思考
 
