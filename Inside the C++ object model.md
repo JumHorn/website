@@ -4,7 +4,8 @@
 自然对msvc和gcc所实现的类的内存模型比较关心。   
 那么能够直观的看到类的内存模型,自然是十分令人兴奋的事情了   
 查看类的布局能够对C++对象模型和编译器有更好的了解
-1. msvc
+
+* msvc
 
 msvc中就有很直观的方法来实现这一功能   
 
@@ -78,7 +79,7 @@ CTest::$vftable@:
 CTest::fnB this adjustor: 0   
 ```
 
-2. gcc
+* gcc
 
 命令gcc -fdump-class-hierarchy _test.cpp
 类的内存结构在生成的class文件里面
@@ -122,7 +123,7 @@ CTest (0x0x6982180) 0
 编译器自动生成的这些函数只有在编译器需要的时候才生成,   
 如果编译结束都没有使用的函数,是不会被生成的   
 
-1. 构造函数的扩张
+* 构造函数的扩张
 
 在构造函数内部优先调用数据成员的构造函数   
 TODO调用数据成员的构造函数的顺序,猜测和声明顺序一致
@@ -148,7 +149,7 @@ int main()
 
 ```
 
-2. 继承情况下的构造和析构的顺序
+* 继承情况下的构造和析构的顺序
 ```C++
 #include "stdafx.h"
 #include "iostream"
@@ -203,7 +204,7 @@ Base::~Base()
 这里构造和析构时的调用顺序是相反的   
 TODO这里是先调用父类构造函数,还是调用自身数据成员的构造函数
 
-3. 当编译器无法生成默认构造函数的时候也会罢工
+* 当编译器无法生成默认构造函数的时候也会罢工
 
 下面是一个例子
 ```C++
@@ -219,7 +220,7 @@ int main()
 }
 
 ```
-4. 虚基类构造函数
+* 虚基类构造函数
 ```C++
 class Base 
 {
@@ -255,12 +256,12 @@ int main()
 }
 
 ```
-5. C++新标准的move construct & move assignment construct
+* C++新标准的move construct & move assignment construct
 
 TODO
 
 # the semantics of data
-1. static 和 const
+* static 和 const
 ```C++
 class Animal
 {
@@ -271,7 +272,7 @@ public:
 ```
 const 成员函数是包含this指针的 。这明显不被static函数允许
 
-2. 继承和多态
+* 继承和多态
 
 继承的注意事项   
 在private继承中,子类public不能改变private的属性
@@ -311,15 +312,15 @@ int main()
 多态依赖于虚拟成员函数,只有指针才能实现多态   
 实现细节是在指针查找虚表寻址方式的时候发生的
 
-3. TODO MFC和Qt避免继承负担的封装措施
+* TODO MFC和Qt避免继承负担的封装措施
 
 # the semantics of function
 
-1. 虚拟成员函数
+* 虚拟成员函数
 
 转换成虚表寻址方式,也是这种方式实现了多态
 
-2. const成员函数
+* const成员函数
 
 在c++中，非const对象是可以调用const成员函数的
 ```C++
@@ -350,7 +351,7 @@ int main()
 
 ```
 
-3. 通过指针访问private成员函数
+* 通过指针访问private成员函数
 ```C++
 class Dog
 {
@@ -386,7 +387,7 @@ int main()
 }
 
 ```
-指向成员函数的指针
+指向成员函数的指针,加上域操作符表示含有this指针
 ```C++
 void (Animal::*pf)()
 pf = &Animal::eat()
