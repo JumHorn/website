@@ -1,0 +1,279 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	background: #fff url("../images/html.png") repeat-x left top;
+}
+body {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	color: #888888;
+	background: url("../images/body.png") repeat-y left top;
+	width: 1000px;
+	margin: 0 auto 30px auto;
+	position: relative;
+}
+a img {
+	border: 1px solid #ccc;
+}
+
+a {
+	color: #94AEBB;
+	text-decoration: none;
+}
+a:hover {
+	visibility: visible;
+/* IE bug fix */
+}
+a:hover img {
+	border: 1px solid #729AD7;
+}
+h1 {
+	font-size: 14px;
+}
+h2 {
+	font-size: 12px;
+}
+.page {
+	background: url("../images/page.jpg") no-repeat left top;
+	padding: 28px 125px 0 115px;
+	width: 760px;
+}
+.header {
+	position: relative;
+	width: 760px;
+	height: 170px;
+	overflow: hidden;
+	font-size: 160%;
+}
+.header a {
+	display: block;
+	width: 760px;
+	height: 170px;
+	cursor: pointer;
+	padding: 20px 0 0 0;
+	text-align: center;
+	color: #84A7DC;
+}
+.header span {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 760px;
+	height: 170px;
+	background: url("../images/h1.jpg") no-repeat left top;
+}
+.topmenu {
+	height: 27px;
+	background: url("../images/topmenu.png") no-repeat left top;
+	text-align: right;
+	padding: 35px 27px 0 0;
+}
+.page>.topmenu {
+	min-height: 27px;
+	height: auto;
+}
+.topmenu li {
+	display: inline
+}
+.topmenu li a {
+	float: right;
+	width: 105px;
+	height: 22px;
+	background: #A3BDE5 url("../images/roll.png") no-repeat left top;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 5px;
+	overflow: hidden;
+}
+.topmenu li>a {
+	min-height: 22px;
+	height: auto;
+}
+.topmenu li a:hover {
+	background: #83A6DC url("../images/roll.png") no-repeat 0 -27px;
+}
+.main {
+	width: 706px;
+	margin: 0 auto;
+}
+.bluebox {
+	border: 1px solid #ccc;
+	clear: both;
+	padding: 7px 17px 9px 8px;
+	width: 677px;
+	position: relative;
+	margin-bottom: 18px;
+}
+.bluebox .big {
+	float: left;
+	margin-right: 40px;
+}
+.bluebox .big img {
+	padding: 5px;
+}
+.bluebox .right {
+	width: 335px;
+	float: left;
+	padding-bottom: 130px;
+}
+.bluebox .small1, .bluebox .small2 {
+	position: absolute;
+	bottom: 9px;
+}
+.bluebox .small2 {
+	left: 534px;
+}
+.photos {
+	margin-bottom: 15px;
+}
+.photos a {
+	width: 106px;
+	height: 148px;
+	float: left;
+	background: #C2D3EE;
+	text-align: center;
+	color: #A2A3A6;
+	text-decoration: none;
+	font-size: 11px;
+	font-weight: bold;
+	margin-right: 14px;
+}
+.photos>a {
+	min-height: 148px;
+	height: auto;
+}
+.photos a.last, .greybox-background .right a.last {
+	margin-right: 0;
+}
+.photos a:hover {
+	color: #729AD7;
+}
+.photos a span {
+	display: block;
+	padding-top: 2px;
+}
+.photos a>span {
+	padding-top: 5px;
+}
+.greybox {
+	border: 1px solid #ccc;
+	margin-bottom: 39px;
+	padding: 5px 0;
+}
+.greybox-background {
+	background: url("../images/gbback.jpg") repeat-y left top;
+	width: 100%;
+	line-height: 170%;
+}
+.greybox-background .left, .greybox-background .right {
+	width: 321px;
+	float: left;
+	padding: 0 10px;
+}
+.greybox-background .right {
+	float: left;
+	padding: 0 19px 0 20px;
+}
+#contact * {
+	vertical-align: middle;
+}
+#contact fieldset {
+	border: none;
+}
+#contact fieldset p {
+	margin-bottom: 3px;
+}
+#contact label {
+	padding-right: 3px;
+}
+#contact legend {
+	color: #BFBFBF;
+	margin-left: -7px;
+}
+#contact fieldset>legend {
+	margin-left: 0;
+}
+#name, #email {
+	height: 13px;
+	width: 218px;
+	border: 1px solid #B5B5B5;
+}
+#send {
+	border: none;
+	width: 62px;
+	height: 15px;
+	background: #D5D5D5;
+	cursor: pointer;
+	margin: 4px 0 0 34px;
+	color: #B8B8B8;
+	line-height: 100%;
+	font-weight: bold;
+}
+fieldset>#send {
+	min-height: 15px;
+	height: auto;
+}
+.greybox-background .right a {
+	display: block;
+	float: left;
+	margin-right: 11px;
+	margin-top: 8px;
+}
+.greybox2 {
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+	padding: 9px 7px;
+	width: 688px;
+}
+.greybox2 .preview {
+	float: left;
+	margin-right: 40px;
+	margin-right: 44px;
+}
+.greybox2 .preview img {
+	padding: 5px;
+}
+.greybox2 .right {
+	float: left;
+	width: 350px;
+}
+.greybox2 .right a {
+	float: left;
+	margin: 0 14px 7px 0;
+}
+.footer1 {
+	text-align: center;
+	padding: 0 27px 3px 27px;
+}
+.footer1 a {
+	color: #888;
+	text-decoration: none;
+}
+.footer1 a:hover {
+	color: #729AD7;
+	text-decoration: none;
+}
+.footer2 {
+	font-size: 0px;
+	line-height: 0px;
+	height: 18px;
+	background: url("../images/footer.png") no-repeat left top;
+	margin-left: 105px;
+}
+.cleaner {
+	font-size: 0px;
+	line-height: 0px;
+	height: 0px;
+	clear: both;
+}
+
+.lightBlueBg {
+  background-color: #EAF2F5;
+}
+
