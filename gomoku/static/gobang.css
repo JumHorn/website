@@ -1,0 +1,82 @@
+.chessboard{
+    width: 543px;
+    height: 543px;
+    background-size: auto; 
+    background-repeat: no-repeat;
+    background-color: darkgoldenrod;
+    background-image: url(./chessboard.png);
+    margin: 0 auto;
+    background-position: 12px 12px;
+    box-shadow: 2px 2px 8px #888;
+}
+
+div.chessboard div {
+	float: left;
+	width: 36px;
+	height: 36px;
+	border-top: 0px solid #ccc;
+	border-left: 0px solid #ccc;
+	border-right: 0;
+	border-bottom: 0;
+	cursor: pointer;
+}
+
+.hover{
+    background-image: url(./cursor.png);
+    /*background-image: url(./black.png);*/
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+    /*background-position: center;*/
+    margin: auto;
+}
+
+.black{
+    background-image: url(./black.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+}
+
+.white{
+    background-image: url(./white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+}
+
+.black_last{
+    background-image: url(./black_last.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;    
+}
+
+.white_last{
+    background-image: url(./white_last.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;    
+}
+
+#message{
+    font-size: 100px;
+    color: palevioletred;
+    text-align: center;
+    margin: auto;
+
+    position:relative;
+
+    animation:myfirst 2s;
+    -moz-animation:myfirst 2s; /* Firefox */
+    -webkit-animation:myfirst 2s; /* Safari and Chrome */
+    -o-animation:myfirst 2s; /* Opera */
+    animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite; /* Safari 和 Chrome */
+}
+
+@keyframes myfirst
+{
+    0%   { width:800px;}
+    50%  { width:200px;}
+    100% { width:800px;}
+}
