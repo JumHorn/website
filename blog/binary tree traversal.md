@@ -14,8 +14,7 @@ struct tree
     tree *right;
     tree(int x):val(x),left(NULL),right(NULL){}
 };
-</code></pre>
-
+```
 *   类表示  
     在C++中结构体和类几乎没有什么区别，只是成员的访问属性上，类默认是private，而结构体默认是public
 
@@ -45,10 +44,10 @@ postorder   2 5 4 3 1
 tree * create()
 {
     tree *head = new tree(1);
-    head-&gt;left = new tree(2);
-    head-&gt;right = new tree(3);
-    head-&gt;right-&gt;left = new tree(4);
-    head-&gt;right-&gt;left-&gt;right = new tree(5);
+    head->left = new tree(2);
+    head->right = new tree(3);
+    head->right->left = new tree(4);
+    head->right->left->right = new tree(5);
     return head;
 }
 ```
@@ -70,10 +69,10 @@ void PreorderTraversing(tree *node)
         return ;
     }
     //to do something with node value
-    cout&lt;&lt;node-&gt;val&lt;&lt;endl;
+    cout<<node->val<<endl;
 
-    traversing(node-&gt;left);
-    traversing(node-&gt;right);  
+    traversing(node->left);
+    traversing(node->right);  
 }
 ```
 
@@ -87,12 +86,12 @@ void InorderTraversing(tree *node)
     {
         return ;
     }
-    traversing(node-&gt;left);
+    traversing(node->left);
 
     //to do something with node value
-    cout&lt;&lt;node-&gt;val&lt;&lt;endl;
+    cout<<node->val<<endl;
 
-    traversing(node-&gt;right);  
+    traversing(node->right);  
 }
 ```
 
@@ -106,11 +105,11 @@ void PostorderTraversing(tree *node)
     {
         return ;
     }
-    traversing(node-&gt;left);
-    traversing(node-&gt;right);  
+    traversing(node->left);
+    traversing(node->right);  
 
     //to do something with node value
-    cout&lt;&lt;node-&gt;val&lt;&lt;endl;
+    cout<<node->val<<endl;
 }
 ```
 
@@ -124,21 +123,21 @@ void PostorderTraversing(tree *node)
 //preorder tranversal using stack
 void PreorderTraversing(tree *head)
 {
-    stack&lt;tree*&gt; treestack;
+    stack<tree*> treestack;
     tree *node = head;
     while(node||!treestack.empty())
     {
         treestack.push(node);
 
         //to do something with node value
-        cout&lt;&lt;node-&gt;val&lt;&lt;endl;
+        cout<<node->val<<endl;
 
-        node=node-&gt;left;
+        node=node->left;
         while(!node&&!treestack.empty())
         {
             node=treestack.top();
             treestack.pop();
-            node=node-&gt;right;
+            node=node->right;
         }
     }
 }
@@ -150,21 +149,21 @@ void PreorderTraversing(tree *head)
 //Inorder tranversal using stack
 void InorderTraversing(tree *head)
 {
-    stack&lt;tree*&gt; treestack;
+    stack<tree*> treestack;
     tree *node = head;
     while(node||!treestack.empty())
     {
         treestack.push(node);
-        node=node-&gt;left;
+        node=node->left;
         while(!node&&!treestack.empty())
         {
             node=treestack.top();
             treestack.pop();
 
             //to do something with node value
-            cout&lt;&lt;node-&gt;val&lt;&lt;endl;
+            cout<<node->val<<endl;
 
-            node=node-&gt;right;
+            node=node->right;
         }
     }
 }
@@ -176,7 +175,7 @@ void InorderTraversing(tree *head)
 //Postorder tranversal using stack
 void PostorderTraversing(tree *head)
 {
-    stack&lt;tree*&gt; treestack;
+    stack<tree*> treestack;
     tree *node = head,*prenode=NULL;
     if(node==NULL)
     {
@@ -187,23 +186,23 @@ void PostorderTraversing(tree *head)
     {
         node=treestack.top();
 
-        if((node-&gt;left==NULL && node-&gt;right==NULL)||(node-&gt;left==prenode || node-&gt;right==prenode))
+        if((node->left==NULL && node->right==NULL)||(node->left==prenode || node->right==prenode))
         {
             //to do something with node value
-            cout&lt;&lt;node-&gt;val&lt;&lt;endl;
+            cout<<node->val<<endl;
 
             prenode=node;
             treestack.pop();
         }
         else
         {
-            if(node-&gt;right!=NULL)
+            if(node->right!=NULL)
             {
-                treestack.push(node-&gt;right);
+                treestack.push(node->right);
             }
-            if(node-&gt;left!=NULL)
+            if(node->left!=NULL)
             {
-                treestack.push(node-&gt;left);
+                treestack.push(node->left);
             }
         }
     }
