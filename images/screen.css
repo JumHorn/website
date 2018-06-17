@@ -1,0 +1,183 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body
+{
+	font-family: Tahoma, Verdana, Arial;
+	text-align: center;
+	font-size: 10pt;
+	word-spacing: 5px;
+	color: #515151;
+	background-image: url(bggradient.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+#header
+{
+	top: 0;
+	left:0;
+	width: 100%;
+	position: absolute;
+	height: 100px;
+	text-align: left;
+	background-image: url(banner2.jpg);
+	background-size: cover;
+	border-bottom:5px solid blue;
+}
+
+#header h1
+{
+	color:white;
+	margin-left:1em;
+	margin-top:0.8em;
+}
+
+#footer
+{
+	width:100%;
+	border-top:5px solid blue;
+}
+
+#footer h2
+{
+	text-align:right;
+	font-size:0.8em;
+	font-weight: bolder;
+	padding:10px;
+}
+
+#navbar
+{
+	position:absolute;
+	bottom:0px;
+	right:50px;
+}
+
+#navbar ul
+{
+	list-style: none;
+}
+
+#navbar li
+{
+	display:inline;
+}
+
+#navbar ul li a
+{
+	height: 25px;
+	color: white;
+	text-decoration: none;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-top: 5px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color:blue;
+}
+
+#navbar ul li a:hover
+{
+	color: #C71585;
+	background-color:white;
+}
+
+
+#container
+{
+	text-align:left;
+	padding-top:100px;
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+}
+
+#middlecontent
+{
+	padding-top:2em;	
+	text-align: center;
+	width:100%;
+}
+
+h1
+{
+	margin-left:2em;
+	text-align:left;
+	padding:10px;
+	font-size: 2.5em;
+	font-weight: lighter;
+	color: blue;
+	letter-spacing: -2px;
+}
+
+p
+{
+	text-align:left;
+	line-height: 1.8em;
+	padding:10px;
+}
+
+#picturelist {
+width:620px;
+height:400px;
+margin-top:30px;
+margin-bottom:30px;
+text-align:left;
+margin-right:auto;
+margin-left:auto;
+}
+
+#picturelist li {
+list-style:none;
+float:left;
+margin-right:20px;
+margin-bottom:10px;
+font-weight:bold;
+color:#777777;
+}
+
+#picturelist img{
+display:block;
+border:2px solid #CE3095;
+}
+
+#picturelist img:hover{
+border:2px solid #F4C0DA;
+}
+
+#picturelist a{
+color:#777777;
+text-decoration:none;
+}
+
+#picturelist a:hover{
+color:#999999;
+}
+
+
+#paginglist
+{
+	height:30px;
+	list-style:none;
+}
+
+#paginglist li
+{
+	display:inline;
+}
+
+#paginglist li a
+{
+	font-size: 0.8em;
+	font-weight:bold;
+	color: purple;
+	text-decoration:none;
+}
+
+#paginglist li a:hover
+{
+	border-bottom:5px solid #D00073;
+}
