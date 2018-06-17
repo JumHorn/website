@@ -121,13 +121,13 @@ p
 }
 
 #picturelist {
-width:620px;
-height:400px;
+width:530px;
+height:500px;
 margin-top:30px;
 margin-bottom:30px;
 text-align:left;
-margin-right:auto;
 margin-left:auto;
+margin-right:auto;
 }
 
 #picturelist li {
