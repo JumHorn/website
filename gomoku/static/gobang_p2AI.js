@@ -141,7 +141,7 @@ $(document).ready(function () {
                     break;
                 }
             }
-            for (var k = i - 1; k >= 0; k--) {
+            for (var k = j - 1; k >= 0; k--) {
                 if (chess.chessArr[i][k] == chess.WHITE_CHESS) {
                     live++;
                 }
@@ -258,7 +258,7 @@ $(document).ready(function () {
                     break;
                 }
             }
-            for (var k = i - 1; k >= 0; k--) {
+            for (var k = j - 1; k >= 0; k--) {
                 if (chess.chessArr[i][k] == chess.BLACK_CHESS) {
                     live++;
                 }
